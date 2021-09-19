@@ -1,0 +1,238 @@
+\documentclass{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage[bottom=2cm,top=2cm,left=2cm,right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+%\usepackage{subcaption}
+
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{subfigure}
+
+\title{Lista 1\\
+    \large Sistemas Baseados em Conhecimento: \texttt{[MAC0444]}\\}
+
+\author{Julia Leite\\
+    \large Nusp: 11221797}
+
+\begin{document}
+    
+\maketitle
+
+Resolução
+
+\begin{enumerate}
+    
+    \item Para cada uma das três sentenças abaixo, encontre uma interpretação que faça a sentença
+    falsa e as outras duas verdadeiras:
+
+    \begin{itemize}
+        \item [a)] $S = \forall x \forall y \forall z ((P (x,y) \wedge P(y,z)) \implies P(x,z))$
+        
+            \begin{list}{-}{Interpretações}
+                \item $\Im_1 = <A, I>$ e $\Im_1 \models S$
+                
+                    $A = \{0,1,2\}$
+
+                    $P(x,y) = \{(0,0),(1,1),(2,2)\}$\\
+
+                \item $\Im_2 = <A, I>$ e $\Im_2 \models S$
+                
+                $A = \{0,1,2,3\}$
+
+                $P(x,y) = \{(0,0),(1,1),(2,2),(3,3)\}$\\
+
+                \item $\Im_3 = <A, I>$ e $\Im_3 \models S$
+                
+                $A = \{0,1,2\}$
+
+                $P(x,y) = \{(0,1),(0,2),(1,0),(1,2),(2,0),(2,1)\}$\\
+                
+            \end{list}
+
+        \item [b)] $\forall x \forall y ((P (x,y) \wedge P(y,x)) \implies x=y)$
+        
+        \begin{list}{-}{Interpretações}
+            \item $\Im_1 = <A, I>$ e $\Im_1 \models S$
+            
+                $A = \{1,2\}$
+
+                $P(x,y) = \{(1,1), (2,2)\}$\\
+
+            \item $\Im_2 = <A, I>$ e $\Im_2 \models S$
+            
+            $A = \{1,2\}$
+
+            $P(x,y) = \{(1,1), (1,2), (2,2)\}$\\
+
+            \item $\Im_3 = <A, I>$ e $\Im_3 \models S$
+            
+            $A = \{1,2\}$
+
+            $P(x,y) = \{(1,1), (1,2), (2,1), (2,2)\}$\\
+            
+        \end{list}
+        
+        \item [c)] $\forall x \forall y ((P (a,y) \implies P(x,b))$
+        
+        \begin{list}{-}{Interpretações}
+            \item $\Im_1 = <A, I>$ e $\Im_1 \models S$
+            
+                $A = \{a,b\}$
+
+                $P(x,y) = \{(a,a), (a,b), (b,b)\}$\\
+
+            \item $\Im_2 = <A, I>$ e $\Im_2 \models S$
+            
+            $A = \{a,b,c\}$
+
+            $P(x,y) = \{(a,a), (a,b), (a,c), (b,b), (c,b)\}$\\
+
+            \item $\Im_3 = <A, I>$ e $\Im_3 \models S$
+            
+            $A = \{a,b\}$
+
+            $P(x,y) = \{(a,a), (a,b)\}$\\
+            
+        \end{list}
+
+    \end{itemize}
+
+    \item Antônio, Maria e João são membros do Clube Alpino. Todo membro do Clube Alpino que
+    não é esquiador é um alpinista. Alpinistas não gostam de chuva, e qualquer um que não
+    goste de neve não é esquiador. Maria não gosta de nada que Antônio gosta, e gosta de
+    qualquer coisa de que Antônio não gosta. Antônio gosta de chuva e de neve.
+
+    \begin{itemize}
+        \item [a)] Observação: nesse item, abreviamos Clube Alpino para CA.
+        
+            Obtivemos o seguinte conhecimento (KB)
+
+            \begin{itemize}
+                \item [] $CA (Antonio)$
+                \item [] $CA (Maria)$
+                \item [] $CA (Joao)$
+                \item [] $\forall x (CA(x) \land \neg Esquiador(x) \implies Alpinista(x))$
+                \item [] $\forall x (Alpinista(x) \implies \neg Gosta (x, chuva))$
+                \item [] $\forall x (\neg Gosta (x, neve) \implies \neg Esquiador (x))$
+                \item [] $\forall x (Gosta (Antonio, x) \implies \neg Gosta (Maria, x))$
+                \item [] $\forall x (\neg Gosta (Antonio, x) \implies Gosta (Maria, x))$
+                \item [] $Gosta(Antonio, chuva)$
+                \item [] $Gosta(Antonio, neve)$
+            \end{itemize}
+        
+        \item [b)] Queremos saber se:
+        
+            $$KB \vDash \exists x (CA(x) \land Alpinista(x))$$
+
+            Sabemos que $KB \vDash Gosta(Antonio, neve)$ e $KB \vDash \forall x (Gosta (Antonio, x) \implies \neg Gosta (Maria, x))$
+            então, $$KB \vDash \neg Gosta(Maria, neve)$$
+
+            Como $KB \vDash \neg Gosta(Maria, neve), \forall x (\neg Gosta (x, neve) \implies \neg Esquiador (x))$, temos que
+            $$KB \vDash \neg Esquiador(Maria)$$.
+
+            Sabemos que $KB \vDash CA (Maria), Esquiador(Maria)$ e $KB \vDash \forall x (CA(x) \land \neg Esquiador(x) \implies Alpinista(x))$,
+            então: $$KB \vDash Alpinista(Maria)$$.
+
+            Sabemos, então, que a existência de um membro do CA que é 
+            Alpinista é consequência semântica do conhecimento
+
+        \item [c)] Base de conhecimento (KB) em outra notação:
+        
+            \begin{itemize}
+                \item [I] $[CA (Antonio)]$
+                \item [II] $[CA (Maria)]$
+                \item [III] $[CA (Joao)]$
+                \item [IV] $[\neg CA(x), Esquiador(x), Alpinista(x)]$
+                \item [V] $[\neg Alpinista(x), \neg Gosta(x, chuva)]$
+                \item [VI] $[Gosta(x, neve), \neg Esquiador (x)]$
+                \item [VII] $[\neg Gosta (Antonio,x), \neg Gosta (Maria,x)]$
+                \item [VIII] $[Gosta (Antonio,x), Gosta (Maria,x)]$
+                \item [IX] $[Gosta(Antonio, chuva)]$
+                \item [X] $[Gosta(Antonio, neve)]$
+
+            \end{itemize}
+        
+        Vamos tentar provar $\alpha$ que sem a informação de que \textit{Maria não gosta de nada de que Antônio gosta},
+        ou seja sem o item VII
+
+        $$\alpha = \exists x (CA(x) \land Alpinista(x)$$
+        $$\neg \alpha = \forall x (\neg CA(x) \lor \neg Alpinista(x)$$
+        $$\neg \alpha = [\neg CA(x), \neg Alpinista(x)]$$
+
+        Seja nossa base de conhecimento sem o item VII: KB', queremos provar que
+        $KB' \vDash \alpha$, ou seja que, $KB' \cup \{\neg \alpha\}$ não é 
+        satisfatível.
+
+        Então temos:
+
+        $\neg \alpha = [\neg CA(x), \neg Alpinista(x)]$ e $[\neg CA(x), Esquiador(x), Alpinista(x)]$ (IV)
+        $$[\neg CA(x), Esquiador(x)]$$
+
+        $[\neg CA(x), Esquiador(x)]$ e $[Gosta(x, neve), \neg Esquiador (x)]$ (VI)
+
+        $$[\neg CA(x), Gosta(x, neve)]$$
+
+        Agora: $[\neg CA(x), Gosta(x, neve)]$ e $[CA (Antonio)]$ (I):
+
+        $$\left[\frac{x}{Antonio}\right][Gosta(Antonio, neve)] \neq []$$
+
+        Mesmo se tentarmos substituir o passo anterior com outros itens, 
+        não chegamos em []:
+
+        Outra tentativa: $[\neg CA(x), Gosta(x, neve)]$ e $[CA (Maria)]$ (II):
+
+        $$\left[\frac{x}{Maria}\right][Gosta(Maria, neve)] \neq []$$
+
+        Ou: $[\neg CA(x), Gosta(x, neve)]$ e $[CA (Joao)]$ (III):
+
+        $$\left[\frac{x}{Joao}\right][Gosta(Joao, neve)] \neq []$$
+
+        Concluímos, então, que não é possível provar a existência de um
+        membro do CA alpinista em KB'
+
+        \item [d)] Use resolução com extração de resposta para descobrir quem é o membro do Clube
+        Alpino que é alpinista mas não esquiador.
+
+        $$[\neg CA(x), Esquiador(x), Alpinista(x)] (IV)$$
+        $$[\neg CA(x), Gosta(x, neve), Alpinista(x)] (VI)$$
+
+        Primeira tentativa falha:
+
+        $$[CA (Antonio)] (I)$$
+
+        $$\left[\frac{x}{Antonio}\right][Gosta(Antonio, neve), Alpinista(Antonio)]$$
+
+        Segunda tentativa também falha:
+
+        $$[CA (Joao)] (III)$$
+
+        $$\left[\frac{x}{Joao}\right][Gosta(Joao, neve), Alpinista(Joao)]$$
+
+        Terceira tentativa:
+
+        $[CA (Maria)]$, $[Gosta(Antonio, neve)]$, $\left[\frac{x}{neve}\right][\neg Gosta (Antonio,x), \neg Gosta (Maria,x)]$  $(II, X, VII)$
+
+        Temos, então:
+
+        $$alpinista(Maria)$$
+
+        Logo, Maria é alpinista.
+
+    \end{itemize}
+
+
+\end{enumerate}
+
+
+
+\end{document}
