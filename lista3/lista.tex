@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage[bottom=2cm,top=2cm,left=2cm,right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{subfigure}
+
+\title{Lista 2\\
+\large Sistemas Baseados em Conhecimento: \texttt{[MAC0444]}}
+\author{Julia Leite - \texttt{11221797}}
+
+\begin{document}
+    
+\maketitle
+
+\textbf{1)} \textit{João é cardiologista. Sua irmã, Marta, está desempregada. O pai deles dois, Pedro, 
+é casado com Olívia, uma geriatra. Pedro é arqueologista e tem dois filhos no total.}\\
+
+\textbf{a)} $Human \sqcap \neg Famale \sqcap (\exists married.Doctor) \sqcap (\forall hasChild.(Doctor \cap Professor))$
+
+Onde:
+
+\begin{itemize}
+    \item [-] \textit{Human}: é humano(a)
+    \item [-] \textit{Female}: é do sexo feminino
+    \item [-] \textit{Doctor}: é médico(a)
+    \item [-] \textit{Professor}: é professor(a)
+    \item [-] \textit{hasChild(x, y)}: x tem y como filho(a)
+    \item [-] \textit{married(x, y):} x é casado(a) com y
+    \item [*] $\cap$: conjunção 
+\end{itemize}
+
+O conceito acima diz respeito a um humano que não é mulher, que é casado com ao menos um médico e cujos filhos são médicos ou professores.
+
+\textbf{b)} Considerando apenas as quatro pessoas mencionadas, João, Marta, Pedro
+e Olívia, podemos afirmar que algum deles pertence a esse conceito? Justifique.
+
+Não. As moças mencionadas não cumprem os requisitos de não ser do sexo feminino. Já João não é
+casado com um(a) médico(a) e Pedro tem uma filha que, no momento, não é médica nem professora.
+
+\textbf{c)} Se uma das 4 pessoas acima não existisse, sua resposta mudaria? Como e por quê?
+
+Se Marta não existisse, Pedro pertenceria a esse conceito já que, os filhos (se houverem) precisam ser médicos ou 
+professores, mas não é obrigatório ter um filho de cada categoria.
+
+\textbf{4)} Conceitos:
+
+$Vegano \equiv Homem \sqcap \forall come.Planta$
+$Vegetariano \equiv (Homem \sqcup Mulher) \sqcap \forall come.(Planta \sqcup Laticinio)$
+
+Vamos mostrar que $Vegano \sqsubseteq Vegetariano$
+
+
+
+\end{document}
