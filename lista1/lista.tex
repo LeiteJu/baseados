@@ -39,19 +39,20 @@ Resolução
         \item [a)] $S = \forall x \forall y \forall z ((P (x,y) \wedge P(y,z)) \implies P(x,z))$
         
             \begin{list}{-}{Interpretações}
-                \item $\Im_1 = <A, I>$ e $\Im_1 \models S$
+
+                \item $\Im_1 = <A, I>$ e $\Im_1 \models S$   \texttt{[Verdadeiro]}
                 
                     $A = \{0,1,2\}$
 
                     $P(x,y) = \{(0,0),(1,1),(2,2)\}$\\
 
-                \item $\Im_2 = <A, I>$ e $\Im_2 \models S$
+                \item $\Im_2 = <A, I>$ e $\Im_2 \models S$   \texttt{[Verdadeiro]}
                 
                 $A = \{0,1,2,3\}$
 
                 $P(x,y) = \{(0,0),(1,1),(2,2),(3,3)\}$\\
 
-                \item $\Im_3 = <A, I>$ e $\Im_3 \models S$
+                \item $\Im_3 = <A, I>$ e $\Im_3 \models S$   \texttt{[Falso]}
                 
                 $A = \{0,1,2\}$
 
@@ -62,19 +63,19 @@ Resolução
         \item [b)] $\forall x \forall y ((P (x,y) \wedge P(y,x)) \implies x=y)$
         
         \begin{list}{-}{Interpretações}
-            \item $\Im_1 = <A, I>$ e $\Im_1 \models S$
+            \item $\Im_1 = <A, I>$ e $\Im_1 \models S$   \texttt{[Verdadeiro]}
             
                 $A = \{1,2\}$
 
                 $P(x,y) = \{(1,1), (2,2)\}$\\
 
-            \item $\Im_2 = <A, I>$ e $\Im_2 \models S$
+            \item $\Im_2 = <A, I>$ e $\Im_2 \models S$   \texttt{[Verdadeiro]}
             
             $A = \{1,2\}$
 
             $P(x,y) = \{(1,1), (1,2), (2,2)\}$\\
 
-            \item $\Im_3 = <A, I>$ e $\Im_3 \models S$
+            \item $\Im_3 = <A, I>$ e $\Im_3 \models S$   \texttt{[Falso]}
             
             $A = \{1,2\}$
 
@@ -85,19 +86,19 @@ Resolução
         \item [c)] $\forall x \forall y ((P (a,y) \implies P(x,b))$
         
         \begin{list}{-}{Interpretações}
-            \item $\Im_1 = <A, I>$ e $\Im_1 \models S$
+            \item $\Im_1 = <A, I>$ e $\Im_1 \models S$      \texttt{[Verdadeiro]}
             
                 $A = \{a,b\}$
 
                 $P(x,y) = \{(a,a), (a,b), (b,b)\}$\\
 
-            \item $\Im_2 = <A, I>$ e $\Im_2 \models S$
+            \item $\Im_2 = <A, I>$ e $\Im_2 \models S$      \texttt{[Verdadeiro]}
             
             $A = \{a,b,c\}$
 
             $P(x,y) = \{(a,a), (a,b), (a,c), (b,b), (c,b)\}$\\
 
-            \item $\Im_3 = <A, I>$ e $\Im_3 \models S$
+            \item $\Im_3 = <A, I>$ e $\Im_3 \models S$   \texttt{[Falso]}
             
             $A = \{a,b\}$
 
@@ -140,7 +141,7 @@ Resolução
             Como $KB \vDash \neg Gosta(Maria, neve), \forall x (\neg Gosta (x, neve) \implies \neg Esquiador (x))$, temos que
             $$KB \vDash \neg Esquiador(Maria)$$.
 
-            Sabemos que $KB \vDash CA (Maria), Esquiador(Maria)$ e $KB \vDash \forall x (CA(x) \land \neg Esquiador(x) \implies Alpinista(x))$,
+            Sabemos que $KB \vDash CA (Maria), \neg Esquiador(Maria)$ e $KB \vDash \forall x (CA(x) \land \neg Esquiador(x) \implies Alpinista(x))$,
             então: $$KB \vDash Alpinista(Maria)$$.
 
             Sabemos, então, que a existência de um membro do CA que é 

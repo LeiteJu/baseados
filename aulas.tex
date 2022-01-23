@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{url}
 \usepackage{multicol}
+\usepackage{indentfirst}
 \usepackage[bottom=2cm,top=2cm,left=2cm,right=2cm]{geometry}
 
 \title{Sistemas Baseados em Conhecimento\\
@@ -17,6 +18,80 @@
 
 \tableofcontents
 
+\section{Introdução}
+
+\textbf{Teste de Turing}: para um computador ser considerado inteligente, ele
+teria que enganar um examinador (achar que seria humano)
+
+\textbf{Habilidades envolvidas}
+
+\begin{itemize}
+    \item [-] Processamento de Linguagem Natural
+           
+    \item [-] Representação do Conhecimento
+        Codificar coisas conhecidas (representar com símbolos) $\rightarrow$ 
+        manipular símbolos que codificam proposições para produzir reprentação de 
+        novas proposições 
+        $$1011 + 10 \rightarrow 1101$$
+    
+    \item [-] Aprendizado de Máquina
+\end{itemize}
+
+Ideia de bom senso: \textit{Na sala, Lisa pegou o jornal e caminhou até a cozinha. Onde está o jornal?}\\
+Considerar: representação (cenário) e raciocínio (inferências sobre o cenário)\\
+Formalização: axiomas
+
+\subsection{Sistema baseado em conhecimento}
+
+\textbf{Sistema baseado em conhecimento}: deve ter estruturas que:
+
+\begin{itemize}
+    \item [-] podem ser interpretadas de forma proposicional
+    \item [-] determinam o comportamento do sistema
+\end{itemize}
+
+Hoje, a informação é a semântica atribuída ao dado e o conhecimento 
+é o depende do propósito atribuído... Adquirir conhecimento é fazer a
+modelagem de domínio
+
+
+\section{Lógica de Primeira Ordem}
+
+\subsection{Lógica}
+
+\textbf{Lógica} é uma linguagem formal bem conhecida e desenvolvida
+Tem aparato para raciocínio (calcular consequências)
+
+\subsection{Conhecimento ontológico}
+
+Separando a parte da representação do conhecimento:
+
+$$KR = Logica + Ontologia + Computacao$$
+
+\begin{itemize}
+    \item [-] Lógica: estrutura formal e regras de inferência
+    \item [-] Ontologia: estudo do domínio
+    \item [-] Computação: pra sair da discussão filosófica
+\end{itemize}
+
+\subsection{The Naïve Physics Manifesto (Hayes, 1978, 1983)}
+
+\begin{itemize}
+    \item [-] Proposta de desenvolver uma teoria formal englobando todo o
+    conhecimento de física de leigos
+    \item [-] Conhecimento na forma declarativa
+    \item [-] Teoria organizada em clusters de conceitos e axiomas
+\end{itemize}
+
+\subsection{CYC}
+
+\begin{itemize}
+    \item [-] Projeto iniciado em 1984 por Doug Lenat
+    \item [-] Formalizar conhecimento necess´ario para racioc´ınio
+    envolvendo bom senso
+    \item [-] Ideia: formalizar micromundos
+    \item [-] Uso não é trivial
+\end{itemize}
 
 
 \end{document}
